@@ -14,7 +14,7 @@ I'm using this project to practice:
 ## Current Features
 
 - Add, veiw tasks
-- 
+- ....
 More features coming as I learn!
 
 ## How to run
