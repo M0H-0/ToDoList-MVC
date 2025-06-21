@@ -15,7 +15,7 @@ namespace ToDoList.Controllers
         public IActionResult Index()
         {
             var task = _context.ToDoTask.ToList();
-            return Json(task);
+            return View(task);
         }
         [HttpGet]
         public IActionResult Create()

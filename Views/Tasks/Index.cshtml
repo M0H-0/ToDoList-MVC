@@ -1,0 +1,10 @@
+@model List<ToDoTask>
+<h1>Tasks</h1>
+<ul>
+@foreach (var task in Model){
+    <li>
+   <strong> @task.TaskName </strong> 
+   <input type="checkbox" disabled @(task.IsDone?"checked":"")/>
+    </li>
+}
+</ul>
