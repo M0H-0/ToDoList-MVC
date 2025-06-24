@@ -12,17 +12,19 @@ I'm using this project to practice:
 - Basic CRUD operations
 
 ## Current Features
-
-- Add, veiw tasks
+- Add, update, and delete tasks (CRUD)
+- Basic UI layout
 - ....
 More features coming as I learn!
 
-## How to run
+## How to Run
 
-1. Clone the repo  
-2. Run with `dotnet run`  
-3. Open the link shown in the terminal  
+1. Clone the repository  
+2. Apply database migrations  
+   `dotnet ef database update`
+3. Run the project  
+   `dotnet run`
+4. Open the URL shown in the terminal in your browser.
 
----
 
 I’m building this project to improve my skills in web development and backend programming.
