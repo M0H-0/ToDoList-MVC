@@ -29,7 +29,40 @@ namespace ToDoList.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-
-
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var task = _context.ToDoTask.Find(id);
+            if (task == null)
+            {
+                return RedirectToAction("Index");
+            }
+            _context.ToDoTask.Remove(task);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            var task = _context.ToDoTask.Find(id);
+            if (task == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(task);
+        }
+        [HttpPost]
+        public IActionResult Update(ToDoTask EditedTask)
+        {
+            var task = _context.ToDoTask.Find(EditedTask.Id);
+            if (task == null)
+            {
+                return RedirectToAction("Index");
+            }
+            task.TaskName = EditedTask.TaskName;
+            task.IsDone = EditedTask.IsDone;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }  
 }

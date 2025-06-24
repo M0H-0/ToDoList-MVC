@@ -1,0 +1,10 @@
+@model ToDoTask
+<form asp-action="Update" asp-controller="Tasks" method="post">
+<input type="hidden" name="Id" value="@Model.Id" />
+Task name:
+<input type="text" name="TaskName" value="@Model.TaskName" />
+Is Done:
+<input type="checkbox" name="IsDone" value="true" @(Model.IsDone?"checked":"") />
+<input type="hidden" name="IsDone" value="false" />
+<button type="submit">Submit</button>
+</form>
