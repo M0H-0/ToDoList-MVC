@@ -64,5 +64,18 @@ namespace ToDoList.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult SetDoneStatus([FromBody] DoneStatusDto doneStatus)
+        {
+            var task = _context.ToDoTask.Find(doneStatus.Id);
+            if (task == null)
+            {
+                return RedirectToAction("Index");
+            }
+            task.IsDone = doneStatus.IsDone;
+            _context.SaveChanges();
+            return Ok();
+        }
     }  
 }

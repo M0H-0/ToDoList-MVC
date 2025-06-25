@@ -13,6 +13,7 @@ I'm using this project to practice:
 
 ## Current Features
 - Add, update, and delete tasks (CRUD)
+- real-time checkbox toggle with AJAX
 - Basic UI layout
 - ....
 More features coming as I learn!
@@ -21,9 +22,13 @@ More features coming as I learn!
 
 1. Clone the repository  
 2. Apply database migrations  
-   `dotnet ef database update`
+   ```bash
+   dotnet ef database update
+   ```
 3. Run the project  
-   `dotnet run`
+   ```bash
+   dotnet run
+   ```
 4. Open the URL shown in the terminal in your browser.
 
 

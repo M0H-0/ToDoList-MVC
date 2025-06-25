@@ -19,7 +19,6 @@ D:\Random\ToDoApp\ToDoList\obj\Debug\net9.0\scopedcss\bundle\ToDoList.styles.css
 D:\Random\ToDoApp\ToDoList\obj\Debug\net9.0\scopedcss\projectbundle\ToDoList.bundle.scp.css
 D:\Random\ToDoApp\ToDoList\obj\Debug\net9.0\compressed\e1fq7oldmz-b9sayid5wm.gz
 D:\Random\ToDoApp\ToDoList\obj\Debug\net9.0\compressed\7sg3j1vao9-61n19gt1b8.gz
-D:\Random\ToDoApp\ToDoList\obj\Debug\net9.0\compressed\y5cn1uyb8i-xtxxf3hu2r.gz
 D:\Random\ToDoApp\ToDoList\obj\Debug\net9.0\compressed\ii0ot7qarq-bqjiyaj88i.gz
 D:\Random\ToDoApp\ToDoList\obj\Debug\net9.0\compressed\z3215n3a6r-c2jlpeoesf.gz
 D:\Random\ToDoApp\ToDoList\obj\Debug\net9.0\compressed\9smaudsl65-erw9l3u2r3.gz
@@ -249,3 +248,4 @@ D:\Random\ToDoApp\ToDoList\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windo
 D:\Random\ToDoApp\ToDoList\obj\Debug\net9.0\ToDoList.csproj.AssemblyReference.cache
 D:\Random\ToDoApp\ToDoList\obj\Debug\net9.0\ToDoList.csproj.Up2Date
 D:\Random\ToDoApp\ToDoList\obj\Debug\net9.0\ToDoList.sourcelink.json
+D:\Random\ToDoApp\ToDoList\obj\Debug\net9.0\compressed\91s8v8200n-os8u4wnggp.gz
