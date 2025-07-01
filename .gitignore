@@ -1,3 +1,8 @@
 database.db
 database.db-shm
 database.db-wal
+appsettings.Development.json
+bin/
+obj/
+.vscode/
+*.user

@@ -1,0 +1,9 @@
+Create Your Account : 
+<form asp-action="SignUp" asp-controller="Account" method="post" >
+@Html.AntiForgeryToken()
+Email Address :
+<input type="email" name="email" />
+Password: 
+<input type="password" name="password" />
+<button type="submit">Create Account</button>
+</form>

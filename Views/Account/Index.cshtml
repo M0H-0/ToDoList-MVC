@@ -1,0 +1,9 @@
+Login Page:
+<form asp-action="SignIn" asp-controller="Account" method="post">
+@Html.AntiForgeryToken()
+Email Address :
+<input type="email" name="email" />
+Password: 
+<input type="password" name="password" />
+<button type="submit">Login</button>
+</form> 

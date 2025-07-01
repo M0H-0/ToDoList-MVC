@@ -13,10 +13,10 @@ I'm using this project to practice:
 
 ## Current Features
 - Add, update, and delete tasks (CRUD)
-- real-time checkbox toggle with AJAX
-- Basic UI layout
-- ....
-More features coming as I learn!
+- User sign-up, sign-in, and sign-out with secure access control.
+- Real-time toggle of task status (done/undone) without page reload.
+- Simple and clean UI.
+- ....More features coming as I learn!
 
 ## How to Run
 

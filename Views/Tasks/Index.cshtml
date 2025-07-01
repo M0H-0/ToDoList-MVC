@@ -4,7 +4,7 @@
 <a asp-action="Create" asp-controller="Tasks">Add Task</a>
 @foreach (var task in Model){
  <div style="border: 2px solid black; margin-bottom: 10px; padding: 10px; display: flex;align-items: center;">
-   <strong> @task.TaskName </strong> 
+   <strong> @task.TaskName </strong>
    <input type="checkbox" class="check-box" data-id="@task.Id" @(task.IsDone?"checked":"")/>
    <div style="margin-left: auto;">
    <form asp-action="Update" asp-controller="Tasks" method="get" style="display: inline-block;">
