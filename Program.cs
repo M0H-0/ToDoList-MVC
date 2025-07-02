@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using ToDoList.Data;
+using ToDoList.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,7 @@ builder.Services.AddAntiforgery(options =>
 {
     options.HeaderName = "RequestVerificationToken";
 });
-builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedEmail = true).AddEntityFrameworkStores<AppDbContext>();
 builder.Services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/Index");
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -20,6 +21,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireUppercase = false;
 });
+builder.Services.AddSingleton<GmailSender>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

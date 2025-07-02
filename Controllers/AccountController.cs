@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ToDoList.Services;
 
 namespace ToDoList.Controllers;
 
@@ -8,11 +9,13 @@ public class AccountController : Controller
 {
     private readonly SignInManager<IdentityUser> _signInManager;
     private readonly UserManager<IdentityUser> _userManager;
+    private readonly GmailSender _gmailSender;
 
-    public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+    public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, GmailSender gmailSender)
     {
         _signInManager = signInManager;
         _userManager = userManager;
+        _gmailSender = gmailSender;
     }
 
     [HttpGet]
@@ -28,9 +31,15 @@ public class AccountController : Controller
         var result = _userManager.CreateAsync(user, password).Result;
         if (!result.Succeeded)
         {
-            return Content("Error");
+            return Content("Weak Password or already used Email");
         }
-        _signInManager.SignInAsync(user, false).Wait();
+        var token = _userManager.GenerateEmailConfirmationTokenAsync(user).Result;
+        var link = Url.Action("ConfirmEmail",
+          "Account",
+          new { userId = user.Id, token },
+          protocol: Request.Scheme);
+        _gmailSender.SendEmail(user.Email, "Confirm Your ToDoList Email",$"Click the link to confirm you Email: <a href='{link}'> Confirm </a>");
+        //_signInManager.SignInAsync(user, false).Wait();
 
         return RedirectToAction("Index", "Tasks");
     }
@@ -44,6 +53,15 @@ public class AccountController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult SignIn(string email, string password)
     {
+        var user = _userManager.FindByEmailAsync(email).Result;
+        if (user == null)
+        {
+            return Content("No Account");
+        }
+        if (!_userManager.IsEmailConfirmedAsync(user).Result)
+        {
+            return Content("Please Confirm Your Email First");
+        }
         var result = _signInManager.PasswordSignInAsync(email, password, false, false).Result;
         if (!result.Succeeded)
         {
@@ -57,5 +75,24 @@ public class AccountController : Controller
     {
         _signInManager.SignOutAsync().Wait();
         return RedirectToAction("Index");
+    }
+    [HttpGet]
+    public IActionResult ConfirmEmail(string userId, string token)
+    {
+        var user = _userManager.FindByIdAsync(userId).Result;
+        if (user == null)
+        {
+            return Content("Not Found");
+        }
+        var confirm = _userManager.ConfirmEmailAsync(user, token).Result;
+        if (confirm.Succeeded)
+        {
+            _signInManager.SignInAsync(user,false).Wait();
+            return RedirectToAction("Index", "Tasks");
+        }
+        else
+        {
+            return Content("Token issue");
+        }
     }
 }
