@@ -14,6 +14,7 @@ I'm using this project to practice:
 ## Current Features
 - Add, update, and delete tasks (CRUD)
 - User sign-up, sign-in, and sign-out with secure access control.
+- Email confirmation for account verification.
 - Real-time toggle of task status (done/undone) without page reload.
 - Simple and clean UI.
 - ....More features coming as I learn!
